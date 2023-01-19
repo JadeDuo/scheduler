@@ -45,7 +45,7 @@ const Appointment = function (props) {
 
 
   return (
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment" >
       <Header time={props.time} />
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === SHOW && (
@@ -62,7 +62,7 @@ const Appointment = function (props) {
           interviewers={props.interviewers}
           onSave={(name, interviewer) => save(name, interviewer)}
           onCancel={() => back()}
-
+          
 
         />
       )}

@@ -30,7 +30,8 @@ const useApplicationData = function () {
         for (const day of days) {
           if (day.id === dayID) {
             console.log("about to report this many spots", day.spots)
-            day.spots = spotsRemaining(day) -1
+            day.spots = spotsRemaining(day, appointments)
+            //-1 because another is being filled by the booking.
           }
         }
 
@@ -63,8 +64,7 @@ const useApplicationData = function () {
         console.log("this is dayID", dayID)
         for (const day of days) {
           if (day.id === dayID) {
-            console.log("about to report this many spots", day.spots)
-            day.spots = spotsRemaining(day) +1
+            day.spots = spotsRemaining(day, appointments)
           }
         }
 
@@ -73,11 +73,7 @@ const useApplicationData = function () {
           appointments,
           days
         })
-
-
       })
-
-
   };
 
   const setDay = day => setState({ ...state, day });
@@ -93,11 +89,11 @@ const useApplicationData = function () {
     }
   }
 
-  const spotsRemaining = function (day) {
+  const spotsRemaining = function (day, appointments) {
     let spots = 0;
 
     for (const app of day.appointments) {
-      if (!state.appointments[app.toString()].interview) {
+      if (!appointments[app.toString()].interview) {
         spots += 1;
       }
     }
