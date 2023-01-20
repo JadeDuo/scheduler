@@ -26,12 +26,12 @@ const useApplicationData = function () {
     return axios.put(`/api/appointments/${id}`, appointments[id])
       .then(() => {
         const dayID = getDayIDFromAppID(id)
-        
+
         for (const day of days) {
           if (day.id === dayID) {
-            
+
             day.spots = spotsRemaining(day, appointments)
-            
+
           }
         }
 
@@ -61,7 +61,7 @@ const useApplicationData = function () {
           ...state.days,
         ]
         const dayID = getDayIDFromAppID(id)
-        
+
         for (const day of days) {
           if (day.id === dayID) {
             day.spots = spotsRemaining(day, appointments)
