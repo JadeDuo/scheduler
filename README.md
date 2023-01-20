@@ -4,7 +4,7 @@ Interview Scheduler is a single page React app created with create-react-app.
 
 ## Product Images
 
-![Edit](https://github.com/JadeDuo/)
+![Edit](https://github.com/JadeDuo/scheduler/blob/master/docs/Edit.png?raw=true)
 
 
 
